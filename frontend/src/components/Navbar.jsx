@@ -41,7 +41,7 @@ const Navbar = () => {
   const fetchUserData = async (token, userId) => {
     try {
       setIsLoading(true);
-      const response = await fetch(`http://localhost:5004/api/users/${userId}`, {
+      const response = await fetch(`https://pakka.onrender.com/api/users/${userId}`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -118,7 +118,7 @@ const Navbar = () => {
       });
       
       if (!response.ok) {
-        response = await fetch('http://localhost:5001/questions-history', {
+        response = await fetch('https://pakka.onrender.com/questions-history', {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -339,7 +339,7 @@ const Navbar = () => {
         setIsLoadingResponse(true);
         
         // Call the backend API
-        const response = await fetch('http://localhost:5006/api/chat', {
+        const response = await fetch('https://pakka.onrender.com/api/chat', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

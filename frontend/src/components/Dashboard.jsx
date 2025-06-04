@@ -19,11 +19,11 @@ function Dashboard() {
     const fetchQuestions = async () => {
       try {
         // Fetch from backend 1 (port 5001)
-        const response1 = await axios.get('http://localhost:5001/get-questions');
+        const response1 = await axios.get('https://pakka.onrender.com/get-questions');
         setQuestionsData(response1.data.questions);
         
         // If you also want to fetch from backend 2 (port 5003)
-        const response2 = await axios.get('http://localhost:5003/get-questions');
+        const response2 = await axios.get('https://pakka.onrender.com/get-questions');
         setOtherQuestionsData(response2.data.questions);
       } catch (error) {
         console.error('Error fetching questions:', error);

@@ -25,11 +25,11 @@ const QuestionGenerator = ({ mode }) => {
   useEffect(() => {
     const checkServers = async () => {
       try {
-        const appStatus = await axios.get('http://localhost:5003/health')
+        const appStatus = await axios.get('https://pakka.onrender.com/health')
           .then(() => true)
           .catch(() => false);
           
-        const speechStatus = await axios.get('http://localhost:5001/health')
+        const speechStatus = await axios.get('https://pakka.onrender.com/health')
           .then(() => true)
           .catch(() => false);
           
@@ -93,7 +93,7 @@ const QuestionGenerator = ({ mode }) => {
     formData.append('file', file);
 
     try {
-      const response = await fetch("http://localhost:5003/generate-questions", {
+      const response = await fetch("https://pakka.onrender.com/generate-questions", {
         method: "POST",
         body: formData,
       });
@@ -171,7 +171,7 @@ const QuestionGenerator = ({ mode }) => {
       setIsRecording(true);
       setIsLoading(true);
       try {
-        const response = await axios.post("http://localhost:5001/start-recording");
+        const response = await axios.post("https://pakka.onrender.com/start-recording");
         if (response.data) {
           const { text, skills, questions, answers } = response.data;
           setSkills(skills || []);
@@ -213,7 +213,7 @@ const QuestionGenerator = ({ mode }) => {
     setError('');
     
     try {
-      const response = await axios.post("http://localhost:5003/generate-answers", {
+      const response = await axios.post("https://pakka.onrender.com/generate-answers", {
         questions: questions,
         skills: skills,
         transcript: transcription || ''
@@ -235,11 +235,11 @@ const QuestionGenerator = ({ mode }) => {
     // Check server status again
     const checkServers = async () => {
       try {
-        const appStatus = await axios.get('http://localhost:5003/health')
+        const appStatus = await axios.get('https://pakka.onrender.com/health')
           .then(() => true)
           .catch(() => false);
           
-        const speechStatus = await axios.get('http://localhost:5001/health')
+        const speechStatus = await axios.get('https://pakka.onrender.com/health')
           .then(() => true)
           .catch(() => false);
           
